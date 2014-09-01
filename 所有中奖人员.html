@@ -1,0 +1,146 @@
+<!DOCTYPE html><!--[if lt IE 7]><html class="no-js ie ie6 lt-ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
+<!--[if IE 7]>   <html class="no-js ie ie7 lt-ie8 lt-ie9 lt-ie10"><![endif]-->
+<!--[if IE 8]>   <html class="no-js ie ie8 lt-ie9 lt-ie10"><![endif]-->
+<!--[if IE 9]>   <html class="no-js ie ie9 lt-ie10"><![endif]-->
+<!--[if gt IE 9]><html class="no-js ie ie10"><![endif]-->
+<!--[if !IE]><!-->
+<html class="no-js"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>远东集团2013年尾牙</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+    
+    <!-- jQuery-->
+    <!--<script type="text/javascript" src="js/libs/jquery-1.10.2.min.js"></script>-->
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+    <script src="js/database.js"></script>
+    
+    <!-- framework css --><!--[if gt IE 9]><!-->
+    <link type="text/css" rel="stylesheet" href="css/groundwork.css"><!--<![endif]--><!--[if lte IE 9]>
+    <link type="text/css" rel="stylesheet" href="../css/groundwork-core.css">
+    <link type="text/css" rel="stylesheet" href="../css/groundwork-type.css">
+    <link type="text/css" rel="stylesheet" href="../css/groundwork-ui.css">
+    <link type="text/css" rel="stylesheet" href="../css/groundwork-anim.css">
+    <link type="text/css" rel="stylesheet" href="../css/groundwork-ie.css"><![endif]-->
+    
+    <!-- snippet (syntax highlighting for code examples)-->
+    <script type="text/javascript" src="js/demo/jquery.snippet.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/demo/jquery.snippet.css">
+    <!--<link type="text/css" rel="stylesheet" href="css/jquery.vintageTxt.css">-->
+    <style type="text/css">
+      body{
+        background: url(nianhui.jpg) top left no-repeat; background-size: cover;
+      }
+    </style>
+    <script type="text/javascript">
+      var db = new localDatabase();
+      var list = db.list();
+
+      function listLuckyGuys(){
+        if(list.length != 0){
+          for(var k = 0;k < list.length;k++){
+            console.log(list[k]);
+            //if(list[k].id[0] == '一'){
+              $('#' + list[k].id[0]).prepend('<li id="' + list[k].id.slice(2) + '"><img src="images/' + list[k].name + '.jpg" width="100px" height="100px" class="round"><span class="box round align-center red" style="top:-35px;left:25px;">' + list[k].name + '</span></li>');
+            //}
+          }
+        }
+      }
+
+      $(document).ready(function(){
+        listLuckyGuys();
+        $('#clear').click(function(){
+          var r=confirm("这将清空所有中奖数据，确定要这样做？");
+          if(r){
+            db.clear();
+            window.location.reload();
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="padded">
+        <div class="row">
+          <div class="three fifths bounceInRight animated">
+            <h1 class="zero museo-slab white" style="font-size:50px;">中奖人员名单</h1>
+            <p class="quicksand white" style="font-size:20px;">Lottery APP Created & Maintained by Just1n from FEIT.</p>
+          </div>
+          <div class="two fifths align-right-ipad align-right-desktop flipInX animated">
+            <!--<img src="horse.jpg"  alt="马上发财" width="100px" height="100px" class="round" />-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <article class="row bounceInUp animated">
+        <section class="padded">
+          <h3 class="white">董事长特别奖</h3>
+          <div class="row">
+            <div class="two-up-small-tablet one-up-mobile align-center">
+              <ul class="ch-grid" id="加">
+                
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="padded border-top">
+          <h3 class="white">神马奖</h3>
+          <div class="row">
+            <div class="two-up-small-tablet one-up-mobile align-center">
+              <ul class="ch-grid" id="神">
+                
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="padded border-top">
+          <h3 class="white">金马奖</h3>
+          <div class="row">
+            <div class="two-up-small-tablet one-up-mobile align-center">
+              <ul class="ch-grid" id="金">
+              
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="padded border-top">
+          <h3 class="white">飞马奖</h3>
+          <div class="row">
+            <div class="two-up-small-tablet one-up-mobile align-center">
+              <ul class="ch-grid" id="飞">
+              
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="padded border-top">
+          <h3 class="white">银马奖</h3>
+          <div class="row">
+            <div class="two-up-small-tablet one-up-mobile align-center">
+              <ul class="ch-grid" id="银">
+              
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="padded border-top">
+          <h3 class="white">铜马奖</h3>
+          <div class="row">
+            <div class="two-up-small-tablet one-up-mobile align-center">
+              <ul class="ch-grid" id="铜">
+              
+              </ul>
+            </div>
+          </div>
+        </section>
+      </article>
+      <button id="clear">清空</button>
+    </div>
+  </body>
+</html>

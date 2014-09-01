@@ -1,0 +1,26 @@
+.ch-grid {
+	margin: 10px 0 0 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+
+.ch-grid:after,
+.ch-item:before {
+	content: '';
+    display: table;
+}
+
+.ch-grid:after {
+	clear: both;
+}
+
+.ch-grid li {
+	/** 原来都是100px，名字字会换行 **/
+	width: 120px;
+	height: 120px;
+	display: inline-block;
+	margin: 5px;
+}
